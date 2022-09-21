@@ -4,7 +4,7 @@ Repositório para armazenar as informações e códigos relacionados ao projeto 
 
 # Integrantes 
 
-- Antônio Fernando
+- Antônio Fernando: https://github.com/antoniofcst
 - Breno Gonzaga: https://github.com/brenogonzagacarvalho
 
 Link trello:
