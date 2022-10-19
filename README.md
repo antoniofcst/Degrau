@@ -15,7 +15,7 @@ https://trello.com/b/o5VPSMp1/requisitos
 
 Link do documento de visão:
 
-https://docs.google.com/document/d/1LHPtQ6yFNhJQZe28qW2TRpWcYujIYx1GqvqjlM-RbHE/edit
+https://docs.google.com/document/d/1blMtlCMbr9xkKH-_j1Oc9XGxDNsxyMolXsMO2AbHK4c/edit?usp=sharing (Atualizado)
 
 Link para o protótipo:
 
