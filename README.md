@@ -11,8 +11,7 @@ A D.grau é um aplicativo de orientação profissional que conecta estudantes do
 
 Link trello:
 
-https://trello.com/b/o5VPSMp1/requisitos
-
+hthttps://trello.com/b/o5VPSMp1/quadro-kanban-degrau-pies-20222
 Link do documento de visão:
 
 https://docs.google.com/document/d/1blMtlCMbr9xkKH-_j1Oc9XGxDNsxyMolXsMO2AbHK4c/edit?usp=sharing (Atualizado)
@@ -20,3 +19,6 @@ https://docs.google.com/document/d/1blMtlCMbr9xkKH-_j1Oc9XGxDNsxyMolXsMO2AbHK4c/
 Link para o protótipo:
 
 https://www.figma.com/file/akqp7t45FqFBRYM0leQnG5/Degrau---Prototipo-(Mobile)?node-id=0%3A1
+
+Link Documento Qualidade
+https://docs.google.com/document/d/1DK1E46vLQOSpib9rdcfSoiWHvP4KdfvrZk2-DxIrI2w/edit#heading=h.xj9vzuk3ezra
