@@ -20,5 +20,5 @@ Link para o protótipo:
 
 https://www.figma.com/file/akqp7t45FqFBRYM0leQnG5/Degrau---Prototipo-(Mobile)?node-id=0%3A1
 
-Link Documento Qualidade
+Link do documento de Qualidade de Software:
 https://docs.google.com/document/d/1DK1E46vLQOSpib9rdcfSoiWHvP4KdfvrZk2-DxIrI2w/edit#heading=h.xj9vzuk3ezra
