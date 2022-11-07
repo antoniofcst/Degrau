@@ -53,7 +53,7 @@ public class LoginActivity extends AppCompatActivity {
                 finish();
                 startActivity(new Intent(this, MainActivity.class));
             }else{
-                Toast.makeText(this,"Ocorreu um erro", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this,"Login com Sucesso", Toast.LENGTH_SHORT).show();
             }
         });
     }
