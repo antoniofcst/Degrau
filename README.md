@@ -12,6 +12,8 @@ A D.grau é um aplicativo de orientação profissional que conecta estudantes do
 Link trello:
 
 hthttps://trello.com/b/o5VPSMp1/quadro-kanban-degrau-pies-20222
+
+
 Link do documento de visão:
 
 https://docs.google.com/document/d/1blMtlCMbr9xkKH-_j1Oc9XGxDNsxyMolXsMO2AbHK4c/edit?usp=sharing (Atualizado)
