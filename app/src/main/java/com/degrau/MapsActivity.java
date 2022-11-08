@@ -1,11 +1,19 @@
 package com.degrau;
 
 import androidx.annotation.NonNull;
+import androidx.core.app.ActivityCompat;
 import androidx.fragment.app.FragmentActivity;
 
 import android.Manifest;
+import android.app.AlertDialog;
+import android.content.Context;
+import android.content.DialogInterface;
 import android.content.pm.PackageManager;
+import android.location.Location;
+import android.location.LocationListener;
+import android.location.LocationManager;
 import android.os.Bundle;
+import android.util.Log;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
@@ -19,9 +27,12 @@ import com.degrau.databinding.ActivityMapsBinding;
 public class MapsActivity extends FragmentActivity implements OnMapReadyCallback {
     // a interface OnMapReadyCallback para usar um dos métodos da interface que será usado após o mapa ser carregado
     private GoogleMap mMap; // Objeto para fazer alterações no mapa
-    private String[] permissoes = new String[] {
+    private String[] permissoes = new String[]{
             Manifest.permission.ACCESS_FINE_LOCATION
     };
+    private LocationManager locationManager; // classe que permite localizar o usuario
+    private LocationListener locationListener; // ouvindo as atualizações da localizacao do user
+
     private ActivityMapsBinding binding;
 
     @Override
@@ -32,7 +43,17 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         setContentView(binding.getRoot());
 
         // Validando permissões
-        Permissoes.validarPermissoes(permissoes, this, 1)
+        Permissoes.validarPermissoes(permissoes, this, 1);
+
+        // localizacao do usuario
+        locationManager = (LocationManager) this.getSystemService(Context.LOCATION_SERVICE);
+
+        locationListener = new LocationListener() {
+            @Override
+            public void onLocationChanged(Location location) {
+                Log.d("Localização", "On Location Changed: " + location.toString())
+            }
+        };
 
         // Obtain the SupportMapFragment and get notified when the map is ready to be used.
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
@@ -67,12 +88,40 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
 
-        for( int permissaoResultado : grantResults ) {
-                if(permissaoResultado == PackageManager.PERMISSION_DENIED){
-                    // alerta
-                } else if(permissaoResultado == PackageManager.PERMISSION_GRANTED) {
-                    // recuperar a localização do usuário
+        for (int permissaoResultado : grantResults) {
+            if (permissaoResultado == PackageManager.PERMISSION_DENIED) {
+                alertaValidacaoPermissao();
+            } else if (permissaoResultado == PackageManager.PERMISSION_GRANTED) {
+                // recuperar a localização do usuário
+                if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED) {
+                    locationManager.requestLocationUpdates(
+                            LocationManager.GPS_PROVIDER,
+                            0,
+                            0,
+                            locationListener
+
+
+                    );
+
+                }
+
                 }
         }
+    }
+
+    private void alertaValidacaoPermissao() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("Permissões negadas.");
+        builder.setMessage("Para utilizar o App é necessário aceitar as permissões de uso.");
+        builder.setCancelable(false);
+        builder.setPositiveButton("Confirmar", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int which) {
+                finish();
+            }
+        });
+
+        AlertDialog dialog = builder.create();
+        dialog.show();
     }
 }
