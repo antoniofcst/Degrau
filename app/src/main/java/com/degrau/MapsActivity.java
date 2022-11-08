@@ -51,7 +51,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         locationListener = new LocationListener() {
             @Override
             public void onLocationChanged(Location location) {
-                Log.d("Localização", "On Location Changed: " + location.toString())
+                Log.d("Localização", "On Location Changed: " + location.toString());
             }
         };
 
@@ -74,12 +74,8 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     public void onMapReady(GoogleMap googleMap) { // método chamado após o mapa ser carregado
         mMap = googleMap;
 
-        mMap.setMapType(GoogleMap.MAP_TYPE_TERRAIN);
+        mMap.setMapType(GoogleMap.MAP_TYPE_NORMAL);
 
-        // Add a marker in Sydney and move the camera
-        LatLng quixada = new LatLng(-4.979465, -39.056837);
-        mMap.addMarker(new MarkerOptions().position(quixada).title("Quixadá, CE, Brazil"));
-        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(quixada, 18));
     }
 
     // sobrescrevendo o método

@@ -11,7 +11,6 @@
         android:layout_width="132dp"
         android:layout_height="57dp"
 
-        android:layout_marginTop="32dp"
         android:backgroundTint="@android:color/holo_blue_light"
         android:text="Login"
         android:textColor="#FFFFFF"
@@ -21,14 +20,14 @@
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView2"
-        app:layout_constraintVertical_bias="0.491" />
+        app:layout_constraintVertical_bias="0.869" />
 
     <Button
         android:id="@+id/btnCriarConta"
         android:layout_width="132dp"
         android:layout_height="57dp"
 
-        android:layout_marginBottom="250dp"
+        android:layout_marginBottom="120dp"
         android:backgroundTint="@color/white"
         android:text="Criar Conta"
         android:textColor="#64C5E5"
