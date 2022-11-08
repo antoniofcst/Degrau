@@ -8,13 +8,14 @@ import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.model.BitmapDescriptor;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.degrau.databinding.ActivityMapsBinding;
 
 public class MapsActivity extends FragmentActivity implements OnMapReadyCallback {
-
-    private GoogleMap mMap;
+    // a interface OnMapReadyCallback para usar um dos métodos da interface que será usado após o mapa ser carregado
+    private GoogleMap mMap; // Objeto para fazer alterações no mapa
     private ActivityMapsBinding binding;
 
     @Override
@@ -40,12 +41,14 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
      * installed Google Play services and returned to the app.
      */
     @Override
-    public void onMapReady(GoogleMap googleMap) {
+    public void onMapReady(GoogleMap googleMap) { // método chamado após o mapa ser carregado
         mMap = googleMap;
 
+        mMap.setMapType(GoogleMap.MAP_TYPE_TERRAIN);
+
         // Add a marker in Sydney and move the camera
-        LatLng sydney = new LatLng(-34, 151);
-        mMap.addMarker(new MarkerOptions().position(sydney).title("Marker in Sydney"));
-        mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
+        LatLng quixada = new LatLng(-4.979465, -39.056837);
+        mMap.addMarker(new MarkerOptions().position(quixada).title("Quixadá, CE, Brazil"));
+        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(quixada, 18));
     }
 }
