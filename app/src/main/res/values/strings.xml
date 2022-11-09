@@ -11,4 +11,7 @@
     <string name="login_failed">"Login failed"</string>
     <string name="title_activity_login">LoginActivity</string>
     <string name="title_activity_maps">MapsActivity</string>
+    <string name="search_hint" />
+    <string name="app_label" />
+    <string name="todo">TODO</string>
 </resources>

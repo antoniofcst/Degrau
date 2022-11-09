@@ -12,6 +12,7 @@ import com.google.firebase.auth.FirebaseAuth;
 
 public class LoginActivity extends AppCompatActivity {
     private ActivityLoginBinding bindingLogin;
+    private ActivityCadastroProfessorBinding bindingProf;
     private FirebaseAuth mAuth;
 
     @Override
@@ -31,9 +32,6 @@ public class LoginActivity extends AppCompatActivity {
     private void validarDados(){
         String email = bindingLogin.editEmailProf.getText().toString().trim();
         String senha = bindingLogin.editSenhaProf.getText().toString().trim();
-
-
-
         if(!email.isEmpty()){
             if(!senha.isEmpty()){
                 loginFirebase(email, senha);
@@ -47,14 +45,16 @@ public class LoginActivity extends AppCompatActivity {
 
     }
     private void loginFirebase(String email,String senha){
+
         mAuth.signInWithEmailAndPassword(
                 email, senha
         ).addOnCompleteListener(task -> {
             if(task.isSuccessful()){
-                finish();
-                startActivity(new Intent(this, MainActivity.class));
-            }else{
                 Toast.makeText(this,"Login com Sucesso", Toast.LENGTH_SHORT).show();
+                finish();
+                startActivity(new Intent(getApplicationContext(), MainActivity.class));
+            }else{
+                Toast.makeText(this,"Erro no login", Toast.LENGTH_SHORT).show();
             }
         });
     }
