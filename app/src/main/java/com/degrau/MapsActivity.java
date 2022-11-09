@@ -19,6 +19,7 @@ import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.internal.ICameraUpdateFactoryDelegate;
 import com.google.android.gms.maps.model.BitmapDescriptor;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
@@ -45,15 +46,6 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         // Validando permissões
         Permissoes.validarPermissoes(permissoes, this, 1);
 
-        // localizacao do usuario
-        locationManager = (LocationManager) this.getSystemService(Context.LOCATION_SERVICE);
-
-        locationListener = new LocationListener() {
-            @Override
-            public void onLocationChanged(Location location) {
-                Log.d("Localização", "On Location Changed: " + location.toString());
-            }
-        };
 
         // Obtain the SupportMapFragment and get notified when the map is ready to be used.
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
@@ -73,6 +65,36 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     @Override
     public void onMapReady(GoogleMap googleMap) { // método chamado após o mapa ser carregado
         mMap = googleMap;
+
+        // localizacao do usuario
+        locationManager = (LocationManager) this.getSystemService(Context.LOCATION_SERVICE);
+
+        locationListener = new LocationListener() {
+            @Override
+            public void onLocationChanged(Location location) {
+                Log.d("Localização", "On Location Changed: " + location.toString());
+
+                double latitude = location.getLatitude();
+                double longitude = location.getLongitude();
+                mMap.clear(); // limpando o marcador do mapa
+                LatLng localUsuario = new LatLng(latitude, longitude);
+                mMap.addMarker(new MarkerOptions().position(localUsuario).title("Local do Usuario"));
+                mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(localUsuario, 15));
+            }
+        };
+
+        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED) {
+            locationManager.requestLocationUpdates(
+                    LocationManager.GPS_PROVIDER,
+                    0,
+                    0,
+                    locationListener
+                    // requerendo pela segunda vez a localização do usuário após ele dar a permissão de acesso a localização
+
+            );
+
+        }
+
 
         mMap.setMapType(GoogleMap.MAP_TYPE_NORMAL);
 
