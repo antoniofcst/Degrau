@@ -12,71 +12,69 @@
     <Button
         android:id="@+id/VerMaps"
         android:layout_width="132dp"
-        android:layout_height="57dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="41dp"
+        android:layout_marginBottom="42dp"
         android:backgroundTint="@android:color/holo_blue_light"
         android:text="Ver no Mapa"
         android:textColor="@color/white"
         app:cornerRadius="45dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.146"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.937" />
+        app:layout_constraintTop_toBottomOf="@+id/editBuscarMentor" />
 
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="194dp"
-        android:layout_height="49dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginBottom="16dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="74dp"
         android:background="@color/white"
-        app:layout_constraintBottom_toTopOf="@+id/VerMaps"
+        app:layout_constraintBottom_toTopOf="@+id/editBuscarMentor"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/listarMentores"
-        app:layout_constraintVertical_bias="0.089"
         app:srcCompat="@drawable/logo_degrau" />
 
     <TextView
         android:id="@+id/listarMentores"
         android:layout_width="197dp"
-        android:layout_height="33dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="59dp"
+        android:layout_marginBottom="300dp"
         android:text="Buscar Mentores"
         android:textColor="@android:color/holo_blue_light"
         android:textSize="25dp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/editTextTextMultiLine"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.085" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
         android:id="@+id/editTextTextMultiLine"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="64dp"
 
 
+        android:layout_marginStart="183dp"
+        android:layout_marginEnd="183dp"
+
+        android:layout_marginBottom="291dp"
         android:gravity="start|top"
         android:inputType="textMultiLine"
         android:minHeight="48dp"
-
-        app:layout_constraintBottom_toTopOf="@+id/VerMaps"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.467"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/imageButtonBuscarMentor"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.755" />
+        app:layout_constraintTop_toBottomOf="@+id/listarMentores" />
 
     <ImageButton
         android:id="@+id/imageButtonBuscarMentor"
-        android:layout_width="50dp"
+        android:layout_width="0dp"
         android:layout_height="50dp"
+        android:layout_marginEnd="25dp"
         android:background="@android:color/holo_blue_light"
         android:foregroundTint="@android:color/holo_blue_light"
-        app:layout_constraintBottom_toBottomOf="@+id/editBuscarMentor"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/editBuscarMentor"
         app:layout_constraintTop_toTopOf="@+id/editBuscarMentor"
@@ -87,15 +85,16 @@
         android:id="@+id/editBuscarMentor"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="100dp"
+        android:layout_marginEnd="26dp"
+
+        android:layout_marginBottom="352dp"
         android:ems="10"
         android:inputType="textPersonName"
         android:minHeight="48dp"
-
-        app:layout_constraintBottom_toTopOf="@+id/editTextTextMultiLine"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintBottom_toTopOf="@+id/VerMaps"
+        app:layout_constraintEnd_toStartOf="@+id/imageButtonBuscarMentor"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView"
-        app:layout_constraintVertical_bias="0.4" />
+        app:layout_constraintTop_toBottomOf="@+id/imageView" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
