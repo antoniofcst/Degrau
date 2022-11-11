@@ -1,101 +1,150 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/background_login"
+    android:background="@color/colorPrimary"
     android:id="@+id/logoDegrau"
-    tools:context=".LoginActivity">
+    tools:context=".activities.LoginActivity">
 
-    <EditText
-        android:id="@+id/editEmailProf"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="256dp"
-        android:layout_marginEnd="32dp"
-        android:background="@color/white"
-        android:backgroundTint="@color/white"
-        android:ems="10"
-        android:hint="Email"
-        android:inputType="textEmailAddress"
-        android:minHeight="48dp"
-        android:paddingLeft="10dp"
-        android:textColorHint="@color/black"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+   <androidx.constraintlayout.widget.ConstraintLayout
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content">
+       <LinearLayout
+           android:id="@+id/ImageLogo"
+           android:layout_width="match_parent"
+           android:layout_height="@dimen/_150sdp"
+           android:orientation="vertical"
+           android:gravity="center"
+           android:background="@color/colorBackground"
+           app:layout_constraintBaseline_toTopOf="parent">
 
-    <EditText
-        android:id="@+id/editSenhaProf"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="32dp"
-        android:background="@color/white"
-        android:backgroundTint="@color/white"
-        android:ems="10"
-        android:hint="Senha"
-        android:inputType="textPassword"
-        android:minHeight="48dp"
-        android:paddingLeft="10dp"
-        android:textColorHint="@color/black"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editEmailProf" />
+           <ImageView
+               android:id="@+id/imageView"
+               android:layout_width="240dp"
+               android:layout_height="119dp"
+               android:layout_marginBottom="32dp"
+               app:layout_constraintBottom_toBottomOf="parent"
+               app:layout_constraintEnd_toEndOf="parent"
+               app:layout_constraintStart_toStartOf="parent"
+               app:srcCompat="@drawable/logo_degrau" />
+           <TextView
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:layout_marginTop="@dimen/_4sdp"
+               android:includeFontPadding="false"
+               android:text="Bem-vindo à Degrau"
+               android:textColor="@color/colorPrimaryText"
+               android:textSize="@dimen/_16sdp"
+               android:fontFamily="@font/roboto_bold">
 
-    <TextView
-        android:id="@+id/esqueceuSenha"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="42dp"
-        android:text="Esqueceu sua senha ?"
-        android:textColor="@color/white"
-        app:layout_constraintEnd_toEndOf="@+id/editSenhaProf"
-        app:layout_constraintTop_toBottomOf="@+id/editSenhaProf" />
+           </TextView>
+       </LinearLayout>
+       <EditText
+           android:id="@+id/editLoginEmail"
+           android:layout_width="0dp"
+           android:layout_height="wrap_content"
+           android:layout_marginStart="32dp"
+           android:layout_marginTop="256dp"
+           android:layout_marginEnd="32dp"
+           android:background="@color/colorBackground"
+           android:textColorHint="#0277BD"
+           android:ems="10"
+           android:hint="Email"
+           android:inputType="textEmailAddress"
+           android:minHeight="48dp"
+           android:paddingLeft="10dp"
+           app:layout_constraintEnd_toEndOf="parent"
+           app:layout_constraintStart_toStartOf="parent"
+           app:layout_constraintTop_toTopOf="parent" />
 
-    <CheckBox
-        android:id="@+id/checkBox"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
-        android:layout_marginEnd="32dp"
-        android:backgroundTint="#64C5E5"
-        android:checked="false"
-        android:text="Permanecer Conectado"
-        android:textColor="@color/white"
-        android:visibility="gone"
-        app:layout_constraintEnd_toStartOf="@+id/esqueceuSenha"
-        app:layout_constraintTop_toBottomOf="@+id/editSenhaProf"
-        tools:visibility="visible" />
+       <EditText
+           android:id="@+id/editSenhaLogin"
+           android:layout_width="0dp"
+           android:layout_height="wrap_content"
+           android:layout_marginStart="32dp"
+           android:layout_marginTop="16dp"
+           android:layout_marginEnd="32dp"
+           android:background="@color/colorBackground"
+           android:backgroundTint="@color/colorBackground"
+           android:ems="10"
+           android:hint="Senha"
+           android:inputType="textPassword"
+           android:minHeight="48dp"
+           android:paddingLeft="10dp"
+           android:textColorHint="#0277BD"
+           app:layout_constraintEnd_toEndOf="parent"
+           app:layout_constraintStart_toStartOf="parent"
+           app:layout_constraintTop_toBottomOf="@+id/editLoginEmail" />
+       <ProgressBar
+           android:id="@+id/progressBar"
+           android:layout_width="@dimen/_25sdp"
+           android:layout_height="@dimen/_25sdp"
+           android:layout_gravity="center"
+           android:visibility="invisible"
+           app:layout_constraintEnd_toEndOf="@id/editSenhaLogin"
+           app:layout_constraintTop_toTopOf="@id/btnEntrar"
+           app:layout_constraintStart_toStartOf="@id/btnEntrar"
+           app:layout_constraintBottom_toBottomOf="@id/btnEntrar"
+           android:backgroundTint="@color/colorBackground"
+           />
+       <TextView
+           android:id="@+id/esqueceuSenha"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:layout_marginTop="20dp"
+           android:layout_marginEnd="180dp"
+           android:text="Esqueceu sua senha ?"
+           android:textColor="@color/colorBackground"
+           android:textSize="@dimen/_13sdp"
+           app:layout_constraintEnd_toEndOf="@+id/editSenhaLogin"
+           app:layout_constraintTop_toBottomOf="@+id/editSenhaLogin" />
 
-    <Button
-        android:id="@+id/btnEntrar"
-        android:layout_width="133dp"
-        android:layout_height="50dp"
+       <Button
+           android:id="@+id/btnEntrar"
+           android:layout_width="133dp"
+           android:layout_height="50dp"
 
-        android:layout_marginTop="72dp"
-        android:backgroundTint="@color/white"
-        android:text="Entrar"
-        android:textColor="#64C5E5"
-        app:cornerRadius="45dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/esqueceuSenha" />
+           android:layout_marginTop="8dp"
+           android:backgroundTint="@color/colorBackground"
+           android:text="Entrar"
+           android:textColor="#0277BD"
+           app:cornerRadius="45dp"
+           app:layout_constraintEnd_toEndOf="parent"
+           app:layout_constraintHorizontal_bias="0.122"
+           app:layout_constraintStart_toStartOf="parent"
+           app:layout_constraintTop_toBottomOf="@+id/esqueceuSenha" />
 
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="107dp"
-        android:layout_height="40dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginEnd="236dp"
-        android:layout_marginBottom="32dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:srcCompat="@drawable/logo_degrau" />
+       <TextView
+           android:id="@+id/naotenhoConta"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:layout_marginStart="56dp"
+           android:layout_marginTop="20dp"
+           android:text="Não tem conta ?"
+           android:textColor="@color/colorBackground"
+           android:textSize="@dimen/_13sdp"
+           app:layout_constraintStart_toEndOf="@+id/esqueceuSenha"
+           app:layout_constraintTop_toBottomOf="@+id/editSenhaLogin" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+       <Button
+           android:id="@+id/btnCriarConta"
+           android:layout_width="133dp"
+           android:layout_height="50dp"
+           android:layout_marginStart="80dp"
+           android:layout_marginTop="8dp"
+           android:backgroundTint="@color/colorBackground"
+           android:text="Criar Conta"
+           android:textColor="#0277BD"
+           android:textSize="@dimen/_10sdp"
+           app:cornerRadius="45dp"
+           app:layout_constraintStart_toEndOf="@+id/btnEntrar"
+           app:layout_constraintTop_toBottomOf="@+id/naotenhoConta" />
+
+
+   </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</ScrollView>

@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/background_login"
-    tools:context=".RecuperarContaActivity">
+    tools:context=".activities.RecuperarContaActivity">
 
     <EditText
         android:id="@+id/RecuperarEmail"
@@ -14,16 +14,14 @@
         android:layout_marginStart="32dp"
         android:layout_marginTop="112dp"
         android:layout_marginEnd="32dp"
-        android:background="@color/white"
-        android:backgroundTint="@color/white"
-        android:ems="10"
+        android:background="@color/colorBackground"
+        android:textColorHint="#0277BD"
         android:fontFamily="@font/roboto_regular"
         android:hint="Email"
         android:inputType="textEmailAddress"
         android:minHeight="48dp"
         android:paddingLeft="10dp"
         android:textAlignment="viewStart"
-        android:textColorHint="@color/black"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
@@ -34,13 +32,12 @@
         android:layout_width="133dp"
         android:layout_height="50dp"
         android:layout_marginStart="232dp"
-
         android:layout_marginTop="16dp"
-        android:backgroundTint="@color/white"
         android:fontFamily="@font/roboto_regular"
-        android:text="Enviar"
-        android:textColor="#64C5E5"
+        android:backgroundTint="@color/colorBackground"
+        android:textColor="#0277BD"
         app:cornerRadius="45dp"
+        android:text="Enviar"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/RecuperarEmail" />
 
@@ -63,7 +60,7 @@
         android:fontFamily="@font/roboto_bold"
         android:text="Recuperar Senha"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
-        android:textColor="@color/white"
+        android:textColor="@color/colorBackground"
         android:textSize="24sp"
         app:layout_constraintBottom_toTopOf="@+id/RecuperarEmail"
         app:layout_constraintEnd_toEndOf="parent"

@@ -1,13 +1,10 @@
-package com.degrau;
+package com.degrau.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Toast;
-
-import com.degrau.databinding.ActivityCadastroProfessorBinding;
-import com.degrau.databinding.ActivityLoginBinding;
 import com.degrau.databinding.ActivityRecuperarContaBinding;
 import com.google.firebase.auth.FirebaseAuth;
 
@@ -16,7 +13,7 @@ public class RecuperarContaActivity extends AppCompatActivity {
     private ActivityRecuperarContaBinding binding;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        getSupportActionBar().hide();
+
         super.onCreate(savedInstanceState);
         binding = ActivityRecuperarContaBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
@@ -38,7 +35,7 @@ public class RecuperarContaActivity extends AppCompatActivity {
         mAuth.sendPasswordResetEmail(email).addOnCompleteListener(task -> {
             if(task.isSuccessful()){
                 finish();
-                startActivity(new Intent(this, MainActivity.class));
+                startActivity(new Intent(this, EncontrarMentoresActivity.class));
                 Toast.makeText(this,"Mandou", Toast.LENGTH_SHORT).show();
             }else{
                 //Toast.makeText(this,"Já pode verificar seu email", Toast.LENGTH_SHORT).show();

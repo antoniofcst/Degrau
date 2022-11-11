@@ -1,101 +1,77 @@
 <?xml version="1.0" encoding="utf-8"?>
-
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    tools:context=".activities.MainActivity">
 
-    android:textAlignment="center"
-    tools:context=".MainActivity">
+    <LinearLayout
+        android:id="@+id/layoutHeader"
+        android:layout_width="match_parent"
+        android:layout_height="?actionBarSize"
+        android:background="@color/colorPrimary"
+        android:gravity="center_vertical"
+        android:paddingStart="@dimen/_8sdp"
+        android:paddingEnd="@dimen/_8sdp"
+        android:orientation="horizontal"
+        app:layout_constraintBaseline_toTopOf="parent">
 
-    <Button
-        android:id="@+id/VerMaps"
-        android:layout_width="132dp"
-        android:layout_height="57dp"
-        android:backgroundTint="@android:color/holo_blue_light"
-        android:text="Ver no Mapa"
-        android:textColor="@color/white"
-        app:cornerRadius="45dp"
+        <TextView
+            android:id="@+id/textTitle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/_8sdp"
+            android:layout_weight="1"
+            android:fontFamily="@font/roboto_bold"
+            android:background="@color/colorPrimary"
+            android:includeFontPadding="false"
+            android:textSize="@dimen/_15ssp"
+
+            />
+        <TextView
+            android:id="@+id/textSignOut"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:fontFamily="@font/roboto_bold"
+            android:includeFontPadding="false"
+            android:text="@string/sign_out"
+            android:textSize="@dimen/_13sdp"
+            android:textColor="@color/colorBackground"
+            android:gravity="center"
+            />
+    </LinearLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/userRecyclerview"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.146"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.937" />
-
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="194dp"
-        android:layout_height="49dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginBottom="16dp"
-        android:background="@color/white"
-        app:layout_constraintBottom_toTopOf="@+id/VerMaps"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/listarMentores"
-        app:layout_constraintVertical_bias="0.089"
-        app:srcCompat="@drawable/logo_degrau" />
-
+        app:layout_constraintTop_toBottomOf="@id/layoutHeader"
+        />
     <TextView
-        android:id="@+id/listarMentores"
-        android:layout_width="197dp"
-        android:layout_height="33dp"
-        android:text="Buscar Mentores"
-        android:textColor="@android:color/holo_blue_light"
-        android:textSize="25dp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.085" />
-
-    <EditText
-        android:id="@+id/editTextTextMultiLine"
-        android:layout_width="wrap_content"
+        android:id="@+id/textErrorMessage"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="64dp"
-
-
-        android:gravity="start|top"
-        android:inputType="textMultiLine"
-        android:minHeight="48dp"
-
-        app:layout_constraintBottom_toTopOf="@+id/VerMaps"
+        android:layout_marginTop="@dimen/_20sdp"
+        android:fontFamily="@font/roboto_regular"
+        android:gravity="center"
+        android:includeFontPadding="false"
+        android:textColor="@android:color/holo_purple"
+        android:textSize="@dimen/_13ssp"
+        app:layout_constraintTop_toBottomOf="@id/layoutHeader"
+        />
+    <ProgressBar
+        android:id="@+id/userProgressBar"
+        android:layout_width="@dimen/_32sdp"
+        android:layout_height="@dimen/_32sdp"
+        android:layout_marginTop="@dimen/_20sdp"
+        android:visibility="gone"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.467"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.755" />
-
-    <ImageButton
-        android:id="@+id/imageButtonBuscarMentor"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:background="@android:color/holo_blue_light"
-        android:foregroundTint="@android:color/holo_blue_light"
-        app:layout_constraintBottom_toBottomOf="@+id/editBuscarMentor"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/editBuscarMentor"
-        app:layout_constraintTop_toTopOf="@+id/editBuscarMentor"
-        app:srcCompat="@android:drawable/ic_menu_search"
-        tools:ignore="SpeakableTextPresentCheck" />
-
-    <EditText
-        android:id="@+id/editBuscarMentor"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:minHeight="48dp"
-
-        app:layout_constraintBottom_toTopOf="@+id/editTextTextMultiLine"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView"
-        app:layout_constraintVertical_bias="0.4" />
-
+        app:layout_constraintTop_toBottomOf="parent"
+        android:backgroundTint="@color/colorBackground"
+        />
 </androidx.constraintlayout.widget.ConstraintLayout>
