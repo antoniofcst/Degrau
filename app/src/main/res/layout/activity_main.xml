@@ -27,7 +27,6 @@
             android:background="@color/colorPrimary"
             android:includeFontPadding="false"
             android:textSize="@dimen/_15ssp"
-
             />
         <TextView
             android:id="@+id/textSignOut"
