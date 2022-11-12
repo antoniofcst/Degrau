@@ -56,20 +56,6 @@
 
         />
 
-    <Button
-        android:id="@+id/VerMaps"
-        android:layout_width="132dp"
-        android:layout_height="57dp"
-        android:backgroundTint="@color/colorPrimary"
-        android:text="Ver no Mapa"
-        android:textColor="@color/colorBackground"
-        app:cornerRadius="45dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.942"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.873" />
 
     <TextView
         android:id="@+id/textErrorMessage"

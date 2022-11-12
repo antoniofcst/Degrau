@@ -1,5 +1,6 @@
 package com.degrau.activities;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 
@@ -14,6 +15,8 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.degrau.R;
+import com.degrau.databinding.ActivityMainBinding;
+import com.degrau.maps.MapsActivity;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -30,6 +33,8 @@ public class PerfilFragment extends Fragment {
     private ImageView imagePerfil;
     private TextView textMentores, textMentorias, textMentorados;
     private Button buttonEditarPerfil;
+    private ActivityMainBinding binding;
+    private Button buttonVerMaps;
 
 
     // TODO: Rename and change types of parameters
@@ -67,6 +72,7 @@ public class PerfilFragment extends Fragment {
         }
     }
 
+    @SuppressLint("MissingInflatedId")
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -80,6 +86,10 @@ public class PerfilFragment extends Fragment {
         textMentores = view.findViewById(R.id.textMentores);
         textMentorias = view.findViewById(R.id.textMentorias);
         buttonEditarPerfil = view.findViewById(R.id.buttonEditarPerfil);
+        buttonVerMaps = view.findViewById(R.id.VerMaps);
+
+        // abre mapa
+        binding.ButtonVerMaps.setOnClickListener(views -> startActivity(new Intent(this, MapsActivity.class)));
 
         // abre edição de perfil
         buttonEditarPerfil.setOnClickListener(new View.OnClickListener(

@@ -44,7 +44,7 @@ public class MainActivity extends AppCompatActivity {
                 "%s",
                 preferenceManager.getString(Constrants.KEY_NOMECOMPLETO)
         ));
-        binding.VerMaps.setOnClickListener(view -> startActivity(new Intent(this, MapsActivity.class)));
+
         binding.textSignOut.setOnClickListener(view -> {
             signOut();
         });
