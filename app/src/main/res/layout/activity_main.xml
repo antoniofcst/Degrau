@@ -1,4 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
+
+
+
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -12,9 +15,9 @@
         android:layout_height="?actionBarSize"
         android:background="@color/colorPrimary"
         android:gravity="center_vertical"
+        android:orientation="horizontal"
         android:paddingStart="@dimen/_8sdp"
         android:paddingEnd="@dimen/_8sdp"
-        android:orientation="horizontal"
         app:layout_constraintBaseline_toTopOf="parent">
 
         <TextView
@@ -23,22 +26,23 @@
             android:layout_height="wrap_content"
             android:layout_marginEnd="@dimen/_8sdp"
             android:layout_weight="1"
-            android:fontFamily="@font/roboto_bold"
             android:background="@color/colorPrimary"
+            android:fontFamily="@font/roboto_bold"
             android:includeFontPadding="false"
-            android:textSize="@dimen/_15ssp"
-            />
+            android:textSize="@dimen/_15ssp" />
+
         <TextView
             android:id="@+id/textSignOut"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:fontFamily="@font/roboto_bold"
+            android:gravity="center"
             android:includeFontPadding="false"
             android:text="@string/sign_out"
-            android:textSize="@dimen/_13sdp"
             android:textColor="@color/colorBackground"
-            android:gravity="center"
-            />
+            android:textSize="@dimen/_13sdp" />
+
+
     </LinearLayout>
 
     <androidx.recyclerview.widget.RecyclerView
@@ -50,7 +54,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toBottomOf="@id/layoutHeader"
 
-    />
+        />
 
     <Button
         android:id="@+id/VerMaps"
@@ -62,10 +66,10 @@
         app:cornerRadius="45dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintHorizontal_bias="0.942"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.51" />
+        app:layout_constraintVertical_bias="0.873" />
 
     <TextView
         android:id="@+id/textErrorMessage"
@@ -77,17 +81,34 @@
         android:includeFontPadding="false"
         android:textColor="@android:color/holo_purple"
         android:textSize="@dimen/_13ssp"
-        app:layout_constraintTop_toBottomOf="@id/layoutHeader"
-        />
+        app:layout_constraintTop_toBottomOf="@id/layoutHeader" />
+
     <ProgressBar
         android:id="@+id/userProgressBar"
         android:layout_width="@dimen/_32sdp"
         android:layout_height="@dimen/_32sdp"
         android:layout_marginTop="@dimen/_20sdp"
+        android:backgroundTint="@color/colorBackground"
         android:visibility="gone"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="parent"
-        android:backgroundTint="@color/colorBackground"
-        />
+        app:layout_constraintTop_toBottomOf="parent" />
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottom_navigation"
+        style="@style/Widget.MaterialComponents.BottomNavigationView.Colored"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:menu="@menu/bottom_navigation_menu" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_begin="20dp" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -49,12 +49,6 @@ public class MainActivity extends AppCompatActivity {
             signOut();
         });
 
-        // abre perfil
-        textTitle.setOnClickListener(view -> startActivity(new Intent(MainActivity.this, PerfilFragment.class)));
-
-
-
-
 
 
         FirebaseInstallations.getInstance().getToken(true).addOnCompleteListener(task -> {
