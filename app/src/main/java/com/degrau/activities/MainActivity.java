@@ -10,7 +10,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 import com.degrau.adapters.UserAdapter;
 import com.degrau.databinding.ActivityMainBinding;
-import com.degrau.maps.MapsActivity;
 import com.degrau.models.User;
 import com.degrau.utilities.Constrants;
 import com.degrau.utilities.PreferenceManager;
@@ -30,6 +29,7 @@ public class MainActivity extends AppCompatActivity {
     private PreferenceManager preferenceManager;
     private List<User> users;
     private UserAdapter userAdapter;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -97,7 +97,6 @@ public class MainActivity extends AppCompatActivity {
                 });
 
     }
-
     private void sendFCMTokenToFirebase(String token){
         FirebaseFirestore db = FirebaseFirestore.getInstance();
         DocumentReference documentReference =

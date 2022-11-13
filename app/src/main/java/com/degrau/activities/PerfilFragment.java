@@ -1,11 +1,8 @@
 package com.degrau.activities;
-
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
-
 import androidx.fragment.app.Fragment;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,16 +10,11 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
-
 import com.degrau.R;
-import com.degrau.databinding.ActivityMainBinding;
-import com.degrau.maps.MapsActivity;
+import com.degrau.activities.maps.MapsActivity;
+import com.degrau.databinding.ActivityPerfilFragmentBinding;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link PerfilFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
+
 public class PerfilFragment extends Fragment {
 
     // TODO: Rename parameter arguments, choose names that match
@@ -33,9 +25,8 @@ public class PerfilFragment extends Fragment {
     private ImageView imagePerfil;
     private TextView textMentores, textMentorias, textMentorados;
     private Button buttonEditarPerfil;
-    private ActivityMainBinding binding;
+    private ActivityPerfilFragmentBinding binding;
     private Button buttonVerMaps;
-
 
     // TODO: Rename and change types of parameters
     private String mParam1;
@@ -44,7 +35,6 @@ public class PerfilFragment extends Fragment {
     public PerfilFragment() {
         // Required empty public constructor
     }
-
     /**
      * Use this factory method to create a new instance of
      * this fragment using the provided parameters.
@@ -66,6 +56,7 @@ public class PerfilFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         if (getArguments() != null) {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
@@ -77,7 +68,7 @@ public class PerfilFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view =  inflater.inflate(R.layout.fragment_perfil, container, false);
+        View view =  inflater.inflate(R.layout.activity_perfil_fragment, container, false);
 
         // configurações dos componentes
         progressBar = view.findViewById(R.id.progressBarPerfil);
@@ -89,17 +80,15 @@ public class PerfilFragment extends Fragment {
         buttonVerMaps = view.findViewById(R.id.VerMaps);
 
         // abre mapa
-        binding.buttonVerMaps.setOnClickListener(views -> startActivity(new Intent(this, MapsActivity.class)));
+        buttonVerMaps.setOnClickListener(view1 -> {
+            Intent i = new Intent(getActivity(), MapsActivity.class);
+            startActivity(i);
+        });
 
         // abre edição de perfil
-        buttonEditarPerfil.setOnClickListener(new View.OnClickListener(
-
-        ) {
-            @Override
-            public void onClick(View view) {
-                Intent i = new Intent(getActivity(), EditarPerfilActivity.class);
-                startActivity(i);
-            }
+        buttonEditarPerfil.setOnClickListener(view1 -> {
+            Intent i = new Intent(getActivity(), EditarPerfilActivity.class);
+            startActivity(i);
         });
 
 

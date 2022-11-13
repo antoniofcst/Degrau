@@ -70,7 +70,7 @@
                 android:value="" />
         </activity>
         <activity
-            android:name=".maps.MapsActivity"
+            android:name=".activities.maps.MapsActivity"
             android:exported="false"
             android:screenOrientation="fullSensor"
             android:windowSoftInputMode="adjustResize" />

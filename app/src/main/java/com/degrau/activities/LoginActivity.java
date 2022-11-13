@@ -67,7 +67,7 @@ public class LoginActivity extends AppCompatActivity {
                     }else {
                         bindingLogin.progressBar.setVisibility(View.INVISIBLE);
                         bindingLogin.btnEntrar.setVisibility(View.VISIBLE);
-                        Toast.makeText(getApplicationContext(),"Não foi possivel realizar o login" ,Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getApplicationContext(),"Senha ou Usuario incorretos" ,Toast.LENGTH_SHORT).show();
                     }
                 });
     }

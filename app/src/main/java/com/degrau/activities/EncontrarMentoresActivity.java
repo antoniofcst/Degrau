@@ -5,7 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 
-import com.degrau.maps.MapsActivity;
+import com.degrau.activities.maps.MapsActivity;
 import com.degrau.databinding.ActivityEncontrarMentoresBinding;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
