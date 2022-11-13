@@ -6,7 +6,8 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:padding="15dp"
-    tools:context=".activities.EditarPerfilActivity">
+    tools:context=".activities.EditarPerfilActivity"
+    android:background="@drawable/background_login">
 
 
     <TextView
@@ -17,7 +18,7 @@
         android:paddingBottom="20dp"
         android:text="Alterar informações da conta"
         android:textAlignment="center"
-        android:textColor="#00BCD4"
+        android:textColor="@color/colorBackground"
         android:textSize="24sp"
         android:textStyle="bold" />
 
@@ -29,7 +30,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:drawableLeft="@drawable/black_perfil"
-            android:hint="E-mail do usuário" />
+            android:hint="E-mail "
+            android:textColor="@color/colorHintText" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
@@ -40,7 +42,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:drawableLeft="@drawable/lock"
-            android:hint="Senha" />
+            android:hint="Senha"
+            android:textColor="@color/colorHintText" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
@@ -51,7 +54,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:drawableLeft="@drawable/ic_baseline_drive_file_rename_outline_24"
-            android:hint="Nome completo" />
+            android:hint="Nome completo"
+            android:textColor="@color/colorHintText" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
@@ -62,7 +66,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:drawableLeft="@drawable/work"
-            android:hint="Área de atuação" />
+            android:hint="Área de atuação"
+            android:textColor="@color/colorHintText" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
@@ -77,7 +82,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:drawableLeft="@drawable/phone"
-            android:hint="Número" />
+            android:hint="Número"
+            android:textColor="@color/colorHintText" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout

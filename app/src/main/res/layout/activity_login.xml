@@ -5,9 +5,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorPrimary"
     android:id="@+id/logoDegrau"
-    tools:context=".activities.LoginActivity">
+    tools:context=".activities.LoginActivity"
+    android:background="@drawable/background_login">
 
    <androidx.constraintlayout.widget.ConstraintLayout
        android:layout_width="match_parent"
@@ -30,17 +30,6 @@
                app:layout_constraintEnd_toEndOf="parent"
                app:layout_constraintStart_toStartOf="parent"
                app:srcCompat="@drawable/logo_degrau" />
-           <TextView
-               android:layout_width="wrap_content"
-               android:layout_height="wrap_content"
-               android:layout_marginTop="@dimen/_4sdp"
-               android:includeFontPadding="false"
-               android:text="Bem-vindo à Degrau"
-               android:textColor="@color/colorPrimaryText"
-               android:textSize="@dimen/_16sdp"
-               android:fontFamily="@font/roboto_bold">
-
-           </TextView>
        </LinearLayout>
 
        <EditText
@@ -57,7 +46,7 @@
            android:inputType="textEmailAddress"
            android:minHeight="48dp"
            android:paddingLeft="10dp"
-           android:textColorHint="#0277BD"
+           android:textColorHint="#7A7F81"
            app:layout_constraintEnd_toEndOf="parent"
            app:layout_constraintStart_toStartOf="parent"
            app:layout_constraintTop_toTopOf="parent" />
@@ -77,7 +66,7 @@
            android:inputType="textPassword"
            android:minHeight="48dp"
            android:paddingLeft="10dp"
-           android:textColorHint="#0277BD"
+           android:textColorHint="#7D8285"
            app:layout_constraintEnd_toEndOf="parent"
            app:layout_constraintStart_toStartOf="parent"
            app:layout_constraintTop_toBottomOf="@+id/editLoginEmail" />
@@ -113,7 +102,7 @@
            android:layout_marginTop="8dp"
            android:backgroundTint="@color/colorBackground"
            android:text="Entrar"
-           android:textColor="#0277BD"
+           android:textColor="@color/colorPrimary"
            app:cornerRadius="45dp"
            app:layout_constraintEnd_toEndOf="parent"
            app:layout_constraintHorizontal_bias="0.122"
@@ -140,7 +129,7 @@
            android:layout_marginTop="8dp"
            android:backgroundTint="@color/colorBackground"
            android:text="Criar Conta"
-           android:textColor="#0277BD"
+           android:textColor="@color/colorPrimary"
            android:textSize="@dimen/_10sdp"
            app:cornerRadius="45dp"
            app:layout_constraintStart_toEndOf="@+id/btnEntrar"
