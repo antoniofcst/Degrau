@@ -81,7 +81,7 @@ public class PerfilFragment extends Fragment {
 
         // configurações dos componentes
         progressBar = view.findViewById(R.id.progressBarPerfil);
-        imagePerfil = view.findViewById(R.id.imagePerfil);
+        
         textMentorados = view.findViewById(R.id.textMentorados);
         textMentores = view.findViewById(R.id.textMentores);
         textMentorias = view.findViewById(R.id.textMentorias);
