@@ -89,7 +89,7 @@ public class PerfilFragment extends Fragment {
         buttonVerMaps = view.findViewById(R.id.VerMaps);
 
         // abre mapa
-        binding.ButtonVerMaps.setOnClickListener(views -> startActivity(new Intent(this, MapsActivity.class)));
+        binding.buttonVerMaps.setOnClickListener(views -> startActivity(new Intent(this, MapsActivity.class)));
 
         // abre edição de perfil
         buttonEditarPerfil.setOnClickListener(new View.OnClickListener(
