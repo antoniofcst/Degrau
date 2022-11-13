@@ -28,6 +28,7 @@
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:drawableLeft="@drawable/black_perfil"
             android:hint="E-mail do usuário" />
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -38,6 +39,7 @@
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:drawableLeft="@drawable/lock"
             android:hint="Senha" />
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -48,6 +50,7 @@
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:drawableLeft="@drawable/ic_baseline_drive_file_rename_outline_24"
             android:hint="Nome completo" />
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -58,6 +61,7 @@
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:drawableLeft="@drawable/work"
             android:hint="Área de atuação" />
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -72,6 +76,7 @@
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:drawableLeft="@drawable/phone"
             android:hint="Número" />
     </com.google.android.material.textfield.TextInputLayout>
 
