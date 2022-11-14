@@ -19,12 +19,15 @@
            android:orientation="vertical"
            android:gravity="center"
            android:background="@color/colorBackground"
-           app:layout_constraintBaseline_toTopOf="parent">
+           app:layout_constraintBaseline_toTopOf="parent"
+           >
 
            <ImageView
                android:id="@+id/imageView"
                android:layout_width="240dp"
                android:layout_height="119dp"
+               android:layout_marginTop="32dp"
+               android:layout_marginRight="10dp"
                android:layout_marginBottom="32dp"
                app:layout_constraintBottom_toBottomOf="parent"
                app:layout_constraintEnd_toEndOf="parent"
