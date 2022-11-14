@@ -1,6 +1,9 @@
 package com.degrau.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.navigation.NavController;
+import androidx.navigation.fragment.NavHostFragment;
+import androidx.navigation.ui.NavigationUI;
 import androidx.recyclerview.widget.RecyclerView;
 import android.content.Intent;
 import android.os.Bundle;
@@ -8,7 +11,11 @@ import android.view.View;
 
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.degrau.R;
 import com.degrau.adapters.UserAdapter;
+
+
 import com.degrau.databinding.ActivityMainBinding;
 import com.degrau.models.User;
 import com.degrau.utilities.Constrants;
@@ -23,9 +30,12 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
+
 public class MainActivity extends AppCompatActivity {
 
     private ActivityMainBinding binding;
+    private NavHostFragment navHostFragment;
+    private NavController navController;
     private PreferenceManager preferenceManager;
     private List<User> users;
     private UserAdapter userAdapter;
@@ -38,6 +48,7 @@ public class MainActivity extends AppCompatActivity {
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
+        //initNavigation();
         preferenceManager = new PreferenceManager(getApplicationContext());
         TextView textTitle = binding.textTitle;
         textTitle.setText(String.format(
@@ -45,11 +56,7 @@ public class MainActivity extends AppCompatActivity {
                 preferenceManager.getString(Constrants.KEY_NOMECOMPLETO)
         ));
 
-        binding.textSignOut.setOnClickListener(view -> {
-            signOut();
-        });
-
-
+        binding.textSignOut.setOnClickListener(view -> signOut());
 
         FirebaseInstallations.getInstance().getToken(true).addOnCompleteListener(task -> {
             if(task.isSuccessful() && task.getResult() != null){
@@ -63,6 +70,12 @@ public class MainActivity extends AppCompatActivity {
         userAdapter = new UserAdapter(users);
         userRecyclerview.setAdapter(userAdapter);
         getUsers();
+    }
+
+    private void initNavigation(){
+        navHostFragment = (NavHostFragment) getSupportFragmentManager().findFragmentById(R.id.btn_navigation);
+        navController = navHostFragment != null ? navHostFragment.getNavController() : null;
+        NavigationUI.setupWithNavController(binding.btnNavigation, navController);
     }
 
     public void getUsers(){

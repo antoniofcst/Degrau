@@ -71,7 +71,6 @@ public class PerfilFragment extends Fragment {
         View view =  inflater.inflate(R.layout.activity_perfil_fragment, container, false);
 
         // configurações dos componentes
-        progressBar = view.findViewById(R.id.progressBarPerfil);
         
         textMentorados = view.findViewById(R.id.textMentorados);
         textMentores = view.findViewById(R.id.textMentores);

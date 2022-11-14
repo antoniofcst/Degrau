@@ -1,7 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
-
-
-
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -42,7 +39,6 @@
             android:textColor="@color/colorBackground"
             android:textSize="@dimen/_13sdp" />
 
-
     </LinearLayout>
 
     <androidx.recyclerview.widget.RecyclerView
@@ -52,10 +48,7 @@
         android:orientation="vertical"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/layoutHeader"
-
-        />
-
+        app:layout_constraintTop_toBottomOf="@id/layoutHeader" />
 
     <TextView
         android:id="@+id/textErrorMessage"
@@ -74,27 +67,45 @@
         android:layout_width="@dimen/_32sdp"
         android:layout_height="@dimen/_32sdp"
         android:layout_marginTop="@dimen/_20sdp"
-        android:backgroundTint="@color/colorBackground"
+        android:backgroundTint="@color/colorPrimary"
         android:visibility="gone"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="parent" />
 
-    <com.google.android.material.bottomnavigation.BottomNavigationView
-        android:id="@+id/bottom_navigation"
-        style="@style/Widget.MaterialComponents.BottomNavigationView.Colored"
+
+    <LinearLayout
+        android:id="@+id/layoutNav"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_600sdp"
+        android:background="@color/colorPrimary"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingStart="@dimen/_8sdp"
+        android:paddingEnd="@dimen/_8sdp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:menu="@menu/bottom_navigation_menu" />
+        app:layout_constraintTop_toTopOf="@+id/userRecyclerview">
+
+        <com.google.android.material.bottomnavigation.BottomNavigationView
+            android:id="@+id/btn_navigation"
+            style="@style/Widget.MaterialComponents.BottomNavigationView.Colored"
+            android:layout_width="401dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:menu="@menu/bottom_navigation_menu" />
+
+    </LinearLayout>
+
+
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline7"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_begin="20dp" />
+        app:layout_constraintGuide_end="871dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
