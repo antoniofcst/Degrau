@@ -6,12 +6,15 @@ import androidx.navigation.fragment.NavHostFragment;
 import androidx.navigation.ui.NavigationUI;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
+
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 import com.degrau.R;
+import com.degrau.activities.maps.MapsActivity;
 import com.degrau.adapters.UserAdapter;
 import com.degrau.listeners.UserListener;
 import com.degrau.models.User;
@@ -55,6 +58,7 @@ public class MainActivity extends AppCompatActivity implements UserListener {
         ));
 
         binding.textSignOut.setOnClickListener(view -> signOut());
+        binding.imageMaps.setOnClickListener(view -> startActivity(new Intent(getApplicationContext(), MapsActivity.class)));
 
         FirebaseInstallations.getInstance().getToken(true).addOnCompleteListener(task -> {
             if(task.isSuccessful() && task.getResult() != null){
@@ -74,6 +78,7 @@ public class MainActivity extends AppCompatActivity implements UserListener {
         getUsers();
     }
 
+    @SuppressLint("NotifyDataSetChanged")
     public void getUsers(){
         swipeRefreshLayout.setRefreshing(true);
        FirebaseFirestore db = FirebaseFirestore.getInstance();
@@ -97,11 +102,11 @@ public class MainActivity extends AppCompatActivity implements UserListener {
                         if(users.size() > 0 ){
                             userAdapter.notifyDataSetChanged();
                         }else {
-                            binding.textErrorMessage.setText(String.format(String.format("%s", "Nenhum Usuario Disponivel")));
+                            binding.textErrorMessage.setText(String.format("%s", "Nenhum Usuario Disponivel"));
                             binding.textErrorMessage.setVisibility(View.VISIBLE);
                         }
                     }else{
-                        binding.textErrorMessage.setText(String.format(String.format("%s", "Nenhum Usuario Disponivel")));
+                        binding.textErrorMessage.setText(String.format("%s", "Nenhum Usuario Disponivel"));
                         binding.textErrorMessage.setVisibility(View.VISIBLE);
                     }
                 });
@@ -114,9 +119,7 @@ public class MainActivity extends AppCompatActivity implements UserListener {
                 preferenceManager.getString(Constrants.KEY_USER_ID)
         );
         documentReference.update(Constrants.KEY_FCM_TOKEN, token)
-                .addOnFailureListener(e ->{
-                    Toast.makeText(getApplicationContext(),"Não foi possivel enviar o token" + e.getMessage(),Toast.LENGTH_SHORT).show();
-                });
+                .addOnFailureListener(e -> Toast.makeText(getApplicationContext(),"Não foi possivel enviar o token" + e.getMessage(),Toast.LENGTH_SHORT).show());
     }
     private void signOut(){
         Toast.makeText(getApplicationContext(),"Sign Out" ,Toast.LENGTH_SHORT).show();
@@ -132,32 +135,33 @@ public class MainActivity extends AppCompatActivity implements UserListener {
                     preferenceManager.clearPreferences();
                     startActivity(new Intent(getApplicationContext(),LoginActivity.class));
                     finish();})
-                .addOnFailureListener(e -> {
-            Toast.makeText(getApplicationContext(),"Não foi possivel deslogar",Toast.LENGTH_SHORT).show();
-        });
+                .addOnFailureListener(e -> Toast.makeText(getApplicationContext(),"Não foi possivel deslogar",Toast.LENGTH_SHORT).show());
     }
 
     @Override
     public void initiateVideoMeeting(User user) {
         if (user.token == null || user.token.trim().isEmpty()){
-            Toast.makeText(getApplicationContext(),user.nomeCompleto + " " +"usuario nao disponivel para reuniao",Toast.LENGTH_SHORT).show();
-        }else {
-            Toast.makeText(getApplicationContext(),"Chamada de Video com" + user.nomeCompleto +" ",Toast.LENGTH_SHORT).show();
-        }
-    }
-
-    @Override
-    public void initiateAudioMeeting(User user) {
-        if (user.token == null || user.token.trim().isEmpty()){
-            Toast.makeText(getApplicationContext(),user.nomeCompleto + " " +"Usuário não disponivel para reunião",Toast.LENGTH_SHORT).show();
-        }else {
+            Toast.makeText(
+                    this,
+                    user.nomeCompleto + " " +"usuario nao disponivel para reuniao",
+                    Toast.LENGTH_SHORT).show();
+        } else {
             Intent intent = new Intent(getApplicationContext(),OutgoingInvitationActivity.class);
             intent.putExtra("user",user);
             intent.putExtra("type","video");
             startActivity(intent);
-
         }
-
+    }
+    @Override
+    public void initiateAudioMeeting(User user) {
+        if (user.token == null || user.token.trim().isEmpty()) {
+            Toast.makeText(this,user.nomeCompleto + " " +"Usuário não disponivel para reunião",Toast.LENGTH_SHORT).show();
+        } else {
+            Intent intent = new Intent(getApplicationContext(), OutgoingInvitationActivity.class);
+            intent.putExtra("user",user);
+            intent.putExtra("type","video");
+            startActivity(intent);
+        }
     }
     private void initNavigation(){
         navHostFragment = (NavHostFragment) getSupportFragmentManager().findFragmentById(R.id.btn_navigation);

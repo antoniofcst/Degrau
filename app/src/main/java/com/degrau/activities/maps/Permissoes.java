@@ -1,4 +1,4 @@
-package com.degrau.maps;
+package com.degrau.activities.maps;
 
 import android.app.Activity;
 import android.content.pm.PackageManager;

@@ -26,7 +26,20 @@
             android:background="@color/colorPrimary"
             android:fontFamily="@font/roboto_bold"
             android:includeFontPadding="false"
+            android:textColor="@color/colorBackground"
             android:textSize="@dimen/_15ssp" />
+
+        <ImageView
+            android:id="@+id/imageMaps"
+            android:layout_width="@dimen/_30sdp"
+            android:layout_height="@dimen/_30sdp"
+            android:contentDescription="@string/app_name"
+            android:padding="@dimen/_2sdp"
+            android:src="@drawable/ic_maps"
+            app:layout_constraintBottom_toTopOf="@id/viewDivider"
+            app:layout_constraintEnd_toStartOf="@id/imageVideoMeeting"
+            app:layout_constraintTop_toTopOf="parent"
+            app:tint="@color/colorBackground" />
 
         <TextView
             android:id="@+id/textSignOut"
@@ -40,12 +53,13 @@
             android:textSize="@dimen/_13sdp" />
 
     </LinearLayout>
+
     <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
         android:id="@+id/swiperRefreshLayout"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toTopOf="@id/layoutHeader">
+        app:layout_constraintTop_toBottomOf="@+id/layoutHeader">
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/userRecyclerview"
@@ -62,7 +76,6 @@
         android:id="@+id/textErrorMessage"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/_20sdp"
         android:fontFamily="@font/roboto_regular"
         android:gravity="center"
         android:includeFontPadding="false"

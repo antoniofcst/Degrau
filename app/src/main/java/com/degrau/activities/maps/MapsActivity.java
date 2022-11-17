@@ -44,7 +44,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         setContentView(binding.getRoot());
 
         // Validando permissões
-        com.degrau.maps.Permissoes.validarPermissoes(permissoes, this, 1);
+        Permissoes.validarPermissoes(permissoes, this, 1);
 
 
         // Obtain the SupportMapFragment and get notified when the map is ready to be used.

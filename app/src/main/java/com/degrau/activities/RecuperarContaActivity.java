@@ -38,7 +38,7 @@ public class RecuperarContaActivity extends AppCompatActivity {
                 startActivity(new Intent(this, EncontrarMentoresActivity.class));
                 Toast.makeText(this,"Mandou", Toast.LENGTH_SHORT).show();
             }else{
-                //Toast.makeText(this,"Já pode verificar seu email", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this,"Já pode verificar seu email", Toast.LENGTH_SHORT).show();
             }
         });
     }
