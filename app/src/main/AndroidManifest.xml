@@ -21,18 +21,14 @@
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
-
-
-
         <activity
-            android:name=".activities.EditarPerfilActivity"
-            android:exported="false">
-            <meta-data
-                android:name="android.app.lib_name"
-                android:value="" />
-        </activity>
+            android:name=".activities.OutgoingInvitationActivity"
+            android:screenOrientation="fullSensor"/>
+        <activity
+            android:name=".activities.IncomingInvitationActivity"
 
-
+        android:screenOrientation="fullSensor"/>
+        <activity android:name=".activities.EditarPerfilActivity"/>
         <activity
             android:name=".activities.LoginActivity"
             android:exported="true"
@@ -105,7 +101,7 @@
 
                    TA DANDO ERRO NO MANIFESTO na parte de permissão
                    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
-               -->
+        -->
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="AIzaSyDz6RcD1riLj4W3NxzgsFMhPwAbZQKY078" />

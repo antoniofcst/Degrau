@@ -21,4 +21,6 @@
     <string name="menu_home">Home</string>
     <string name="menu_busca">Busca</string>
     <string name="menu_perfil">Perfil</string>
+    <string name="solicita_o_de_chamada">Solicitação de Chamada</string>
+    <string name="conectando_reuni_o">Conectando Reunião ...</string>
 </resources>

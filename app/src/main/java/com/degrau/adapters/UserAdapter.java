@@ -10,6 +10,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.degrau.R;
+import com.degrau.listeners.UserListener;
 import com.degrau.models.User;
 
 import java.util.List;
@@ -17,8 +18,12 @@ import java.util.List;
 public class UserAdapter extends RecyclerView.Adapter<UserAdapter.UserViewHolder>{
 
     private List<User> users;
+    private UserListener userListener;
 
-    public UserAdapter(List<User> users) {
+
+    public UserAdapter(List<User> users, UserListener userListener) {
+
+        this.userListener = userListener;
         this.users = users;
     }
     @NonNull
@@ -42,9 +47,9 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.UserViewHolder
         return users.size();
     }
 
-    static class UserViewHolder extends RecyclerView.ViewHolder{
-        TextView textFirstChar, textUsername, textEmail;
-        ImageView imageCall, imageVideoMeeting;
+        class UserViewHolder extends RecyclerView.ViewHolder{
+            TextView textFirstChar, textUsername, textEmail;
+            ImageView imageCall, imageVideoMeeting;
 
         UserViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -58,6 +63,12 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.UserViewHolder
             textFirstChar.setText(user.nomeCompleto.substring(0,1));
             textUsername.setText(String.format("%s", user.nomeCompleto));
             textEmail.setText(user.email);
+            imageVideoMeeting.setOnClickListener(view -> {
+                userListener.initiateVideoMeeting(user);
+            });
+            imageCall.setOnClickListener(view -> {
+                userListener.initiateAudioMeeting(user);
+            });
         }
     }
 }

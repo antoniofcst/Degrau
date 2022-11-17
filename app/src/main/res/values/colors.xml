@@ -10,6 +10,10 @@
     <color name="colorBackground">#FAFAFA</color>
     <color name="colorHintText">#BDBDBD</color>
     <color name="colorInputText">#E5E7E9</color>
+    <color name="colorMeetingInvitationStart">#AEDBE9</color>
+    <color name="colorMeetingInvitationEnd">#0277BD</color>
+    <color name="colorRed">#C0392B</color>
+    <color name="colorGreen">#2DBA38</color>
 
 
 </resources>

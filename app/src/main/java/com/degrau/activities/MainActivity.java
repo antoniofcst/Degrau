@@ -5,18 +5,15 @@ import androidx.navigation.NavController;
 import androidx.navigation.fragment.NavHostFragment;
 import androidx.navigation.ui.NavigationUI;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-
 import android.widget.TextView;
 import android.widget.Toast;
-
 import com.degrau.R;
 import com.degrau.adapters.UserAdapter;
-
-
-import com.degrau.databinding.ActivityMainBinding;
+import com.degrau.listeners.UserListener;
 import com.degrau.models.User;
 import com.degrau.utilities.Constrants;
 import com.degrau.utilities.PreferenceManager;
@@ -25,13 +22,13 @@ import com.google.firebase.firestore.FieldValue;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.installations.FirebaseInstallations;
-
+import com.degrau.databinding.ActivityMainBinding;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements UserListener {
 
     private ActivityMainBinding binding;
     private NavHostFragment navHostFragment;
@@ -39,6 +36,7 @@ public class MainActivity extends AppCompatActivity {
     private PreferenceManager preferenceManager;
     private List<User> users;
     private UserAdapter userAdapter;
+    private SwipeRefreshLayout swipeRefreshLayout;
 
 
     @Override
@@ -67,26 +65,25 @@ public class MainActivity extends AppCompatActivity {
         RecyclerView userRecyclerview = binding.userRecyclerview;
 
         users = new ArrayList<>();
-        userAdapter = new UserAdapter(users);
+        userAdapter = new UserAdapter(users, this);
         userRecyclerview.setAdapter(userAdapter);
+
+        swipeRefreshLayout = findViewById(R.id.swiperRefreshLayout);
+        swipeRefreshLayout.setOnRefreshListener(this::getUsers);
+
         getUsers();
     }
 
-    private void initNavigation(){
-        navHostFragment = (NavHostFragment) getSupportFragmentManager().findFragmentById(R.id.btn_navigation);
-        navController = navHostFragment != null ? navHostFragment.getNavController() : null;
-        NavigationUI.setupWithNavController(binding.btnNavigation, navController);
-    }
-
     public void getUsers(){
-       binding.userProgressBar.setVisibility(View.VISIBLE);
+        swipeRefreshLayout.setRefreshing(true);
        FirebaseFirestore db = FirebaseFirestore.getInstance();
         db.collection(Constrants.KEY_COLLECTION_USERS)
                 .get()
                 .addOnCompleteListener(task -> {
-                    binding.userProgressBar.setVisibility(View.GONE);
+                    swipeRefreshLayout.setRefreshing(false);
                     String myUserid = preferenceManager.getString(Constrants.KEY_USER_ID);
-                    if(task.isSuccessful() && task.getResult() != null){
+                    if(task.isSuccessful() && task.getResult() != null) {
+                        users.clear();
                         for(QueryDocumentSnapshot documentSnapshot : task.getResult()){
                             if(myUserid.equals(documentSnapshot.getId())){
                                 continue;
@@ -138,5 +135,33 @@ public class MainActivity extends AppCompatActivity {
                 .addOnFailureListener(e -> {
             Toast.makeText(getApplicationContext(),"Não foi possivel deslogar",Toast.LENGTH_SHORT).show();
         });
+    }
+
+    @Override
+    public void initiateVideoMeeting(User user) {
+        if (user.token == null || user.token.trim().isEmpty()){
+            Toast.makeText(getApplicationContext(),user.nomeCompleto + " " +"usuario nao disponivel para reuniao",Toast.LENGTH_SHORT).show();
+        }else {
+            Toast.makeText(getApplicationContext(),"Chamada de Video com" + user.nomeCompleto +" ",Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    @Override
+    public void initiateAudioMeeting(User user) {
+        if (user.token == null || user.token.trim().isEmpty()){
+            Toast.makeText(getApplicationContext(),user.nomeCompleto + " " +"Usuário não disponivel para reunião",Toast.LENGTH_SHORT).show();
+        }else {
+            Intent intent = new Intent(getApplicationContext(),OutgoingInvitationActivity.class);
+            intent.putExtra("user",user);
+            intent.putExtra("type","video");
+            startActivity(intent);
+
+        }
+
+    }
+    private void initNavigation(){
+        navHostFragment = (NavHostFragment) getSupportFragmentManager().findFragmentById(R.id.btn_navigation);
+        navController = navHostFragment != null ? navHostFragment.getNavController() : null;
+        NavigationUI.setupWithNavController(binding.btnNavigation, navController);
     }
 }
