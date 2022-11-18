@@ -1,21 +1,20 @@
 package com.degrau.activities;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.navigation.NavController;
-import androidx.navigation.fragment.NavHostFragment;
-import androidx.navigation.ui.NavigationUI;
-import androidx.recyclerview.widget.RecyclerView;
-import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
-
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.RecyclerView;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
+
 import com.degrau.R;
 import com.degrau.activities.maps.MapsActivity;
 import com.degrau.adapters.UserAdapter;
+import com.degrau.databinding.ActivityMainBinding;
 import com.degrau.listeners.UserListener;
 import com.degrau.models.User;
 import com.degrau.utilities.Constrants;
@@ -25,7 +24,7 @@ import com.google.firebase.firestore.FieldValue;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.installations.FirebaseInstallations;
-import com.degrau.databinding.ActivityMainBinding;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -34,8 +33,7 @@ import java.util.List;
 public class MainActivity extends AppCompatActivity implements UserListener {
 
     private ActivityMainBinding binding;
-    private NavHostFragment navHostFragment;
-    private NavController navController;
+
     private PreferenceManager preferenceManager;
     private List<User> users;
     private UserAdapter userAdapter;
@@ -49,7 +47,6 @@ public class MainActivity extends AppCompatActivity implements UserListener {
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
-        //initNavigation();
         preferenceManager = new PreferenceManager(getApplicationContext());
         TextView textTitle = binding.textTitle;
         textTitle.setText(String.format(
@@ -59,6 +56,9 @@ public class MainActivity extends AppCompatActivity implements UserListener {
 
         binding.textSignOut.setOnClickListener(view -> signOut());
         binding.imageMaps.setOnClickListener(view -> startActivity(new Intent(getApplicationContext(), MapsActivity.class)));
+        binding.imgHome.setOnClickListener(view -> startActivity(new Intent(getApplicationContext(), MainActivity.class)));
+        binding.imgPerfil.setOnClickListener(view -> startActivity(new Intent(getApplicationContext(), PerfilFragment.class)));
+        binding.imgBuscar.setOnClickListener(view -> startActivity(new Intent(getApplicationContext(), EncontrarMentoresActivity.class)));
 
         FirebaseInstallations.getInstance().getToken(true).addOnCompleteListener(task -> {
             if(task.isSuccessful() && task.getResult() != null){
@@ -163,9 +163,5 @@ public class MainActivity extends AppCompatActivity implements UserListener {
             startActivity(intent);
         }
     }
-    private void initNavigation(){
-        navHostFragment = (NavHostFragment) getSupportFragmentManager().findFragmentById(R.id.btn_navigation);
-        navController = navHostFragment != null ? navHostFragment.getNavController() : null;
-        NavigationUI.setupWithNavController(binding.btnNavigation, navController);
-    }
+
 }
