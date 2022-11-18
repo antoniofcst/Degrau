@@ -77,7 +77,7 @@ public class PerfilFragment extends Fragment {
         textMentores = view.findViewById(R.id.textMentores);
         textMentorias = view.findViewById(R.id.textMentorias);
         buttonEditarPerfil = view.findViewById(R.id.buttonEditarPerfil);
-        buttonVerMaps = view.findViewById(R.id.VerMaps);
+        buttonVerMaps = view.findViewById(R.id.btnVerMaps);
 
         // abre mapa
         buttonVerMaps.setOnClickListener(view1 -> {
