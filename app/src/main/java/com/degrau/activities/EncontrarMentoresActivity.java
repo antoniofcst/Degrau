@@ -25,12 +25,17 @@ public class EncontrarMentoresActivity extends AppCompatActivity {
         binding = ActivityEncontrarMentoresBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
-        binding.VerMaps.setOnClickListener(view ->
-                startActivity(new Intent(this, MapsActivity.class)));
 
-        binding.imageButtonBuscarMentor.setOnClickListener(view -> buscarMentoresFirestore(
+
+        binding.btnBuscarMentor.setOnClickListener(view -> buscarMentoresFirestore(
                 binding.editBuscarMentor.getText().toString()
+
         ));
+        binding.imageMaps.setOnClickListener(view -> startActivity(new Intent(getApplicationContext(), MapsActivity.class)));
+        binding.imgHome.setOnClickListener(view -> startActivity(new Intent(getApplicationContext(), MainActivity.class)));
+        binding.imgPerfil.setOnClickListener(view -> startActivity(new Intent(getApplicationContext(), PerfilFragment.class)));
+        binding.imgBuscar.setOnClickListener(view -> startActivity(new Intent(getApplicationContext(), EncontrarMentoresActivity.class)));
+
     }
 
     void buscarMentoresFirestore(String mentorBuscado) {
@@ -44,10 +49,10 @@ public class EncontrarMentoresActivity extends AppCompatActivity {
                         if (!task.getResult().isEmpty()) {
                             for (QueryDocumentSnapshot document : task.getResult()) {
                                 //Toast.makeText(getApplicationContext(),"Mentor encontrado",Toast.LENGTH_SHORT).show();
-                                binding.editTextTextMultiLine.setText(document.get("nomeCompleto").toString());
+                               // binding.editTextTextMultiLine.setText(document.get("nomeCompleto").toString());
                             }
                         }else {
-                            binding.editTextTextMultiLine.setText("");
+                           // binding.editTextTextMultiLine.setText("");
                             //Toast.makeText(getApplicationContext(),"Mentor não cadastrado",Toast.LENGTH_SHORT).show();
                         }
                     }

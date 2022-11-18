@@ -7,21 +7,6 @@
     android:background="@drawable/background_login"
     tools:context=".activities.EncontrarMentoresActivity">
 
-    <Button
-        android:id="@+id/VerMaps"
-        android:layout_width="132dp"
-        android:layout_height="57dp"
-        android:backgroundTint="@color/colorPrimary"
-        android:text="Ver no Mapa"
-        android:textColor="@color/colorBackground"
-        app:cornerRadius="45dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.146"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.937" />
-
     <TextView
         android:id="@+id/listarMentores"
         android:layout_width="197dp"
@@ -32,55 +17,112 @@
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.158"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.085" />
-
-    <EditText
-        android:id="@+id/editTextTextMultiLine"
-        android:layout_width="201dp"
-        android:layout_height="48dp"
-        android:layout_marginBottom="508dp"
-        android:backgroundTint="@color/colorBackground"
-        android:inputType="textMultiLine"
-        android:minWidth="48dp"
-        android:minHeight="48dp"
-        android:textColor="@color/colorBackground"
-        app:layout_constraintBottom_toTopOf="@+id/VerMaps"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.512"
-        app:layout_constraintStart_toStartOf="parent"
-        tools:ignore="SpeakableTextPresentCheck" />
-
-    <ImageButton
-        android:id="@+id/imageButtonBuscarMentor"
-        android:layout_width="48dp"
-        android:layout_height="48dp"
-        android:background="@null"
-        app:layout_constraintBottom_toTopOf="@+id/editTextTextMultiLine"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.238"
-        app:layout_constraintStart_toEndOf="@+id/editBuscarMentor"
-        app:layout_constraintTop_toBottomOf="@+id/listarMentores"
-        app:layout_constraintVertical_bias="0.788"
-        app:srcCompat="@android:drawable/ic_menu_search"
-        app:tint="#FFFFFF"
-        tools:ignore="SpeakableTextPresentCheck" />
+        app:layout_constraintVertical_bias="0.061" />
 
     <EditText
         android:id="@+id/editBuscarMentor"
-        android:layout_width="@dimen/_209sdp"
+        android:layout_width="@dimen/_265sdp"
         android:layout_height="@dimen/_40sdp"
-        android:layout_marginTop="56dp"
+        android:layout_marginTop="36dp"
         android:background="@color/colorBackground"
         android:drawableLeft="@drawable/buscar_black"
+
         android:hint="Digite uma profissão"
         android:inputType="text"
         android:minHeight="48dp"
+        android:paddingStart="5dp"
         android:textColorHint="@color/colorHintText"
+        app:cornerRadius="45dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/listarMentores"
         tools:ignore="SpeakableTextPresentCheck" />
+
+    <Button
+        android:id="@+id/btnBuscarMentor"
+        android:layout_width="133dp"
+        android:layout_height="50dp"
+        android:backgroundTint="@color/colorBackground"
+        android:fontFamily="@font/roboto_regular"
+        android:text="Buscar"
+        android:textColor="@color/colorPrimary"
+        app:cornerRadius="45dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editBuscarMentor"
+        app:layout_constraintVertical_bias="0.064" />
+
+    <LinearLayout
+        android:id="@+id/layoutNav"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:background="@color/colorPrimary"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingStart="@dimen/_8sdp"
+        android:paddingEnd="@dimen/_8sdp"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <ImageView
+            android:id="@+id/imgHome"
+            android:layout_width="@dimen/_30sdp"
+            android:layout_height="@dimen/_30sdp"
+            android:layout_marginStart="@dimen/_15sdp"
+            android:layout_marginEnd="@dimen/_52sdp"
+            android:contentDescription="@string/app_name"
+            android:padding="@dimen/_2sdp"
+            android:src="@drawable/home"
+            app:layout_constraintBottom_toTopOf="@id/viewDivider"
+            app:layout_constraintEnd_toStartOf="@id/imageVideoMeeting"
+            app:layout_constraintTop_toTopOf="parent"
+            app:tint="@color/colorBackground" />
+
+        <ImageView
+            android:id="@+id/imgBuscar"
+            android:layout_width="@dimen/_30sdp"
+            android:layout_height="@dimen/_30sdp"
+            android:layout_marginEnd="@dimen/_52sdp"
+            android:contentDescription="@string/app_name"
+            android:padding="@dimen/_2sdp"
+            android:src="@drawable/busca"
+            app:layout_constraintBottom_toTopOf="@id/viewDivider"
+            app:layout_constraintEnd_toStartOf="@id/imageVideoMeeting"
+            app:layout_constraintTop_toTopOf="parent"
+            app:tint="@color/colorBackground" />
+
+        <ImageView
+            android:id="@+id/imgPerfil"
+            android:layout_width="@dimen/_30sdp"
+            android:layout_height="@dimen/_30sdp"
+            android:layout_marginEnd="@dimen/_52sdp"
+            android:contentDescription="@string/app_name"
+            android:padding="@dimen/_2sdp"
+            android:src="@drawable/perfil"
+            app:layout_constraintBottom_toTopOf="@id/viewDivider"
+            app:layout_constraintEnd_toStartOf="@id/imageVideoMeeting"
+            app:layout_constraintTop_toTopOf="parent"
+            app:tint="@color/colorBackground" />
+
+        <ImageView
+            android:id="@+id/imageMaps"
+            android:layout_width="@dimen/_30sdp"
+            android:layout_height="@dimen/_30sdp"
+            android:contentDescription="@string/app_name"
+            android:padding="@dimen/_2sdp"
+            android:src="@drawable/ic_maps"
+            app:layout_constraintBottom_toTopOf="@id/viewDivider"
+            app:layout_constraintEnd_toStartOf="@id/imageVideoMeeting"
+            app:layout_constraintTop_toTopOf="parent"
+            app:tint="@color/colorBackground" />
+
+
+    </LinearLayout>
+
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
