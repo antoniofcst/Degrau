@@ -19,7 +19,6 @@ public class PerfilActivity extends AppCompatActivity {
         binding = ActivityPerfilFragmentBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
-        binding.buttonEditarPerfil.setOnClickListener(view -> startActivity(new Intent(getApplicationContext(), EditarPerfilActivity.class)));
-        binding.btnVerMaps.setOnClickListener(view -> startActivity(new Intent(getApplicationContext(), MapsActivity.class)));
+           binding.btnVerMaps.setOnClickListener(view -> startActivity(new Intent(getApplicationContext(), MapsActivity.class)));
     }
 }

@@ -123,10 +123,22 @@
             app:tint="@color/colorBackground" />
 
         <ImageView
-            android:id="@+id/imgPerfil"
+            android:id="@+id/imgFeed"
             android:layout_width="@dimen/_30sdp"
             android:layout_height="@dimen/_30sdp"
             android:layout_marginEnd="@dimen/_52sdp"
+            android:contentDescription="@string/app_name"
+            android:padding="@dimen/_2sdp"
+            android:src="@drawable/feed"
+            app:layout_constraintBottom_toTopOf="@id/viewDivider"
+            app:layout_constraintEnd_toStartOf="@id/imageVideoMeeting"
+            app:layout_constraintTop_toTopOf="parent"
+            app:tint="@color/colorBackground" />
+
+        <ImageView
+            android:id="@+id/imgPerfil"
+            android:layout_width="@dimen/_30sdp"
+            android:layout_height="@dimen/_30sdp"
             android:contentDescription="@string/app_name"
             android:padding="@dimen/_2sdp"
             android:src="@drawable/perfil"
@@ -135,17 +147,7 @@
             app:layout_constraintTop_toTopOf="parent"
             app:tint="@color/colorBackground" />
 
-        <ImageView
-            android:id="@+id/imageMaps"
-            android:layout_width="@dimen/_30sdp"
-            android:layout_height="@dimen/_30sdp"
-            android:contentDescription="@string/app_name"
-            android:padding="@dimen/_2sdp"
-            android:src="@drawable/ic_maps"
-            app:layout_constraintBottom_toTopOf="@id/viewDivider"
-            app:layout_constraintEnd_toStartOf="@id/imageVideoMeeting"
-            app:layout_constraintTop_toTopOf="parent"
-            app:tint="@color/colorBackground" />
+
 
 
     </LinearLayout>

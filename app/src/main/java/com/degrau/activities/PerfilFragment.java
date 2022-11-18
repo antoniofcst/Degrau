@@ -73,10 +73,7 @@ public class PerfilFragment extends Fragment {
 
         // configurações dos componentes
         
-        textMentorados = view.findViewById(R.id.textMentorados);
-        textMentores = view.findViewById(R.id.textMentores);
-        textMentorias = view.findViewById(R.id.textMentorias);
-        buttonEditarPerfil = view.findViewById(R.id.buttonEditarPerfil);
+
         buttonVerMaps = view.findViewById(R.id.btnVerMaps);
 
         // abre mapa
