@@ -1,8 +1,5 @@
 package com.degrau.activities;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
@@ -10,22 +7,27 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.widget.ImageView;
-import android.widget.Toolbar;
+import android.widget.Toast;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.degrau.R;
 import com.degrau.models.Postagem;
 import com.degrau.models.User;
 
+
 public class PostarActivity extends AppCompatActivity {
+
     private ImageView imageFotoEscolhida;
     private Bitmap imagem;
-    private String idUsuarioLogado;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_postar);
-        idUsuarioLogado = User.getToken();
+
         imageFotoEscolhida = findViewById(R.id.imageFotoEscolhida);
 
 
@@ -39,9 +41,15 @@ public class PostarActivity extends AppCompatActivity {
         }
     }
 
-    private void publicarPostagem() {
+    private void publicarPostagem(User user) {
+
+        if (user.token == null || user.token.trim().isEmpty()) {
+            Toast.makeText(this,user.nomeCompleto + " " +"Usuário não disponivel ",Toast.LENGTH_SHORT).show();
+        } else {
+
+        }
         Postagem postagem = new Postagem();
-        postagem.setIdUsuario();
+
     }
 
     @Override
@@ -53,11 +61,9 @@ public class PostarActivity extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-
-
         switch (item.getItemId()) {
             case R.id.ic_salvar_postagem:
-                publicarPostagem();
+
                 break;
         }
         return super.onOptionsItemSelected(item);

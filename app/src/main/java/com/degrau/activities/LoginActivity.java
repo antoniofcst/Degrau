@@ -1,11 +1,13 @@
 package com.degrau.activities;
 
-import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Patterns;
 import android.view.View;
 import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.degrau.databinding.ActivityLoginBinding;
 import com.degrau.utilities.Constrants;
 import com.degrau.utilities.PreferenceManager;
@@ -24,6 +26,7 @@ public class LoginActivity extends AppCompatActivity {
         setContentView(bindingLogin.getRoot());
 
         preferenceManager = new PreferenceManager(getApplicationContext());
+
         if(preferenceManager.getBoolean(Constrants.KEY_ESTA_LOGADO)){
             startActivity(new Intent(this, MainActivity.class));
         }
