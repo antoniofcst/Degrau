@@ -49,11 +49,7 @@ public class PostarActivity extends AppCompatActivity {
         Postagem postagem = new Postagem();
         postagem.setIdUsuario(idUsuarioLogado);
         postagem.setDescricao(textDescricaoFiltro.getText().toString());
-        //if (user.token == null || user.token.trim().isEmpty()) {
-            //Toast.makeText(this,user.nomeCompleto + " " +"Usuário não disponivel ",Toast.LENGTH_SHORT).show();
-      //  } else {
-
-      //  }
+        
     }
 
     @Override
