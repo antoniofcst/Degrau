@@ -97,7 +97,7 @@ public class PostagemFragment extends Fragment {
 
                     Intent i = new Intent(getActivity(),PostarActivity.class);
                     i.putExtra("FotoEscolhida", dadosImagem);
-                    startActivity(i );
+                    startActivity(i);
                 }
             } catch (Exception e) {
                 e.printStackTrace();
