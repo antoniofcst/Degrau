@@ -2,10 +2,14 @@ package com.degrau.activities;
 
 import android.Manifest;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.net.Uri;
 import android.os.Bundle;
 
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import android.preference.PreferenceManager;
 import android.provider.MediaStore;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -13,6 +17,9 @@ import android.view.ViewGroup;
 import android.widget.Button;
 
 import com.degrau.R;
+
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
 
 public class PostagemFragment extends Fragment {
 
@@ -62,5 +69,39 @@ public class PostagemFragment extends Fragment {
         });
 
         return view;
+    }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        if(resultCode == getActivity().RESULT_OK) {
+            Bitmap imagem = null ;
+            try {
+
+                switch (requestCode) {
+                    case SELECAO_CAMERA:
+                        imagem = (Bitmap) data.getExtras().get("Data");
+                        break;
+                    case SELECAO_GALERIA:
+                        Uri localImagemSelecionada = data.getData();
+                        imagem = MediaStore.Images.Media.getBitmap(getActivity().getContentResolver(), localImagemSelecionada);
+                        break;
+
+                }
+
+                if(imagem != null) {
+                    ByteArrayOutputStream baos = new ByteArrayOutputStream();
+                    imagem.compress(Bitmap.CompressFormat.JPEG, 70, baos);
+                    byte[] dadosImagem = baos.toByteArray();
+
+                    Intent i = new Intent(getActivity(),PostarActivity.class);
+                    i.putExtra("FotoEscolhida", dadosImagem);
+                    startActivity(i );
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
     }
 }
