@@ -15,20 +15,24 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.degrau.R;
 import com.degrau.models.Postagem;
 import com.degrau.models.User;
+import com.google.android.material.textfield.TextInputEditText;
 
 
 public class PostarActivity extends AppCompatActivity {
 
     private ImageView imageFotoEscolhida;
     private Bitmap imagem;
-
+    private User user;
+    private String idUsuarioLogado;
+    private TextInputEditText textDescricaoFiltro;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_postar);
-
+        idUsuarioLogado = user.getToken();
         imageFotoEscolhida = findViewById(R.id.imageFotoEscolhida);
+        textDescricaoFiltro = findViewById(R.id.textDescricaoFiltro);
 
 
 
@@ -41,15 +45,15 @@ public class PostarActivity extends AppCompatActivity {
         }
     }
 
-    private void publicarPostagem(User user) {
-
-        if (user.token == null || user.token.trim().isEmpty()) {
-            Toast.makeText(this,user.nomeCompleto + " " +"Usuário não disponivel ",Toast.LENGTH_SHORT).show();
-        } else {
-
-        }
+    private void publicarPostagem() {
         Postagem postagem = new Postagem();
+        postagem.setIdUsuario(idUsuarioLogado);
+        postagem.setDescricao(textDescricaoFiltro.getText().toString());
+        //if (user.token == null || user.token.trim().isEmpty()) {
+            //Toast.makeText(this,user.nomeCompleto + " " +"Usuário não disponivel ",Toast.LENGTH_SHORT).show();
+      //  } else {
 
+      //  }
     }
 
     @Override
