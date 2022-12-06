@@ -31,7 +31,7 @@ public class EncontrarMentoresActivity extends AppCompatActivity {
                 binding.editBuscarMentor.getText().toString()
 
         ));
-        binding.imgFeed.setOnClickListener(view -> startActivity(new Intent(getApplicationContext(), MapsActivity.class)));
+        binding.imgFeed.setOnClickListener(view -> startActivity(new Intent(getApplicationContext(), FeedActivity.class)));
         binding.imgHome.setOnClickListener(view -> startActivity(new Intent(getApplicationContext(), MainActivity.class)));
         binding.imgPerfil.setOnClickListener(view -> startActivity(new Intent(getApplicationContext(), PerfilFragment.class)));
         binding.imgBuscar.setOnClickListener(view -> startActivity(new Intent(getApplicationContext(), EncontrarMentoresActivity.class)));
