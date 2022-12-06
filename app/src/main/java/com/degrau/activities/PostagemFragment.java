@@ -33,7 +33,7 @@ public class PostagemFragment extends Fragment {
 
 
     public PostagemFragment() {
-        // Required empty public constructor
+
     }
 
 
