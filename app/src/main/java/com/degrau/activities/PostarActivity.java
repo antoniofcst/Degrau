@@ -49,7 +49,7 @@ public class PostarActivity extends AppCompatActivity {
         Postagem postagem = new Postagem();
         postagem.setIdUsuario(idUsuarioLogado);
         postagem.setDescricao(textDescricaoFiltro.getText().toString());
-        
+
     }
 
     @Override
