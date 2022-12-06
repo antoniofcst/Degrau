@@ -55,7 +55,7 @@ public class MainActivity extends AppCompatActivity implements UserListener {
         ));
 
         binding.textSignOut.setOnClickListener(view -> signOut());
-        binding.imgFeed.setOnClickListener(view -> startActivity(new Intent(getApplicationContext(), MapsActivity.class)));
+        binding.imgFeed.setOnClickListener(view -> startActivity(new Intent(getApplicationContext(), FeedActivity.class)));
         binding.imgHome.setOnClickListener(view -> startActivity(new Intent(getApplicationContext(), MainActivity.class)));
         binding.imgPerfil.setOnClickListener(view -> startActivity(new Intent(getApplicationContext(), PerfilActivity.class)));
         binding.imgBuscar.setOnClickListener(view -> startActivity(new Intent(getApplicationContext(), EncontrarMentoresActivity.class)));

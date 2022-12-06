@@ -92,6 +92,7 @@ public class PostarActivity extends AppCompatActivity {
                        Uri url = task.getResult();
                        postagem.setCaminhoFoto(url.toString());
                        if(postagem.salvar()) {
+                           // bicho eu preciso passar como parametro no salvar a lista do usuario do app para mostrar no feed deles todas as fotos do banco
                            Toast.makeText(PostarActivity.this,
                                    "Sucesso ao salvar imagem",
                                    Toast.LENGTH_SHORT).show();
