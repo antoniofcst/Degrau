@@ -31,9 +31,10 @@ public class EncontrarMentoresActivity extends AppCompatActivity {
                 binding.editBuscarMentor.getText().toString()
 
         ));
-        binding.imgFeed.setOnClickListener(view -> startActivity(new Intent(getApplicationContext(), FeedActivity.class)));
+
+        binding.icFeed.setOnClickListener(view -> startActivity(new Intent(getApplicationContext(), EditarPerfilActivity.class)));
         binding.imgHome.setOnClickListener(view -> startActivity(new Intent(getApplicationContext(), MainActivity.class)));
-        binding.imgPerfil.setOnClickListener(view -> startActivity(new Intent(getApplicationContext(), PerfilFragment.class)));
+        binding.imgMap.setOnClickListener(view -> startActivity(new Intent(getApplicationContext(), MapsActivity.class)));
         binding.imgBuscar.setOnClickListener(view -> startActivity(new Intent(getApplicationContext(), EncontrarMentoresActivity.class)));
 
     }
@@ -48,8 +49,8 @@ public class EncontrarMentoresActivity extends AppCompatActivity {
                     public void onComplete(@NonNull Task<QuerySnapshot> task) {
                         if (!task.getResult().isEmpty()) {
                             for (QueryDocumentSnapshot document : task.getResult()) {
-                                //Toast.makeText(getApplicationContext(),"Mentor encontrado",Toast.LENGTH_SHORT).show();
-                               // binding.editTextTextMultiLine.setText(document.get("nomeCompleto").toString());
+                               // Toast.makeText(getApplicationContext(),"Mentor encontrado",Toast.LENGTH_SHORT).show();
+                              // binding.editTextTextMultiLine.setText(document.get("nomeCompleto").toString());
                             }
                         }else {
                            // binding.editTextTextMultiLine.setText("");

@@ -74,7 +74,7 @@ public class PerfilFragment extends Fragment {
         // configurações dos componentes
         
 
-        buttonVerMaps = view.findViewById(R.id.btnVerMaps);
+        //buttonVerMaps = view.findViewById(R.id.btnVerMaps);
 
         // abre mapa
         buttonVerMaps.setOnClickListener(view1 -> {

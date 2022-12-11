@@ -18,7 +18,9 @@ public class PerfilActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         binding = ActivityPerfilFragmentBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
-
-           binding.btnVerMaps.setOnClickListener(view -> startActivity(new Intent(getApplicationContext(), MapsActivity.class)));
+        binding.icFeed.setOnClickListener(view -> startActivity(new Intent(getApplicationContext(), EditarPerfilActivity.class)));
+        binding.imgHome.setOnClickListener(view -> startActivity(new Intent(getApplicationContext(), MainActivity.class)));
+        binding.imgMap.setOnClickListener(view -> startActivity(new Intent(getApplicationContext(), MapsActivity.class)));
+        binding.imgBuscar.setOnClickListener(view -> startActivity(new Intent(getApplicationContext(), EncontrarMentoresActivity.class)));
     }
 }

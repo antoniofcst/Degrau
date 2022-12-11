@@ -17,16 +17,16 @@
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.158"
+        app:layout_constraintHorizontal_bias="0.074"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.061" />
+        app:layout_constraintVertical_bias="0.022" />
 
     <EditText
         android:id="@+id/editBuscarMentor"
         android:layout_width="@dimen/_265sdp"
         android:layout_height="@dimen/_40sdp"
-        android:layout_marginTop="36dp"
+        android:layout_marginTop="24dp"
         android:background="@color/colorBackground"
         android:drawableLeft="@drawable/buscar_black"
 
@@ -37,6 +37,7 @@
         android:textColorHint="@color/colorHintText"
         app:cornerRadius="45dp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.238"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/listarMentores"
         tools:ignore="SpeakableTextPresentCheck" />
@@ -54,7 +55,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editBuscarMentor"
-        app:layout_constraintVertical_bias="0.064" />
+        app:layout_constraintVertical_bias="0.059" />
 
     <LinearLayout
         android:id="@+id/layoutNav"
@@ -95,7 +96,7 @@
             app:tint="@color/colorBackground" />
 
         <ImageView
-            android:id="@+id/imgFeed"
+            android:id="@+id/icFeed"
             android:layout_width="@dimen/_30sdp"
             android:layout_height="@dimen/_30sdp"
             android:layout_marginEnd="@dimen/_52sdp"
@@ -108,12 +109,12 @@
             app:tint="@color/colorBackground" />
 
         <ImageView
-            android:id="@+id/imgPerfil"
+            android:id="@+id/imgMap"
             android:layout_width="@dimen/_30sdp"
             android:layout_height="@dimen/_30sdp"
             android:contentDescription="@string/app_name"
             android:padding="@dimen/_2sdp"
-            android:src="@drawable/perfil"
+            android:src="@drawable/ic_maps"
             app:layout_constraintBottom_toTopOf="@id/viewDivider"
             app:layout_constraintEnd_toStartOf="@id/imageVideoMeeting"
             app:layout_constraintTop_toTopOf="parent"

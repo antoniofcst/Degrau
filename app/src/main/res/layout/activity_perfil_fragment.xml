@@ -57,38 +57,6 @@
     </LinearLayout>
 
 
-    <TextView
-        android:id="@+id/SobrePerfil"
-        android:layout_width="0dp"
-        android:layout_height="92dp"
-        android:background="@color/colorBackground"
-        android:fontFamily="@font/roboto"
-        android:hint="Sobre"
-        android:inputType="textMultiLine"
-        android:minHeight="48dp"
-        android:paddingLeft="10dp"
-        android:textColorHint="#838B95"
-        app:layout_constraintBottom_toTopOf="@+id/guideline5"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/layoutHeader" />
-
-    <Button
-        android:id="@+id/btnVerMaps"
-        android:layout_width="132dp"
-        android:layout_height="57dp"
-        android:backgroundTint="@color/colorPrimary"
-        android:text="Ver no Mapa"
-        android:textColor="@color/colorBackground"
-        app:cornerRadius="45dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/guideline5"
-        app:layout_constraintVertical_bias="0.695" />
-
     <LinearLayout
         android:id="@+id/layoutNav"
         android:layout_width="match_parent"
@@ -128,7 +96,7 @@
             app:tint="@color/colorBackground" />
 
         <ImageView
-            android:id="@+id/imgFeed"
+            android:id="@+id/icFeed"
             android:layout_width="@dimen/_30sdp"
             android:layout_height="@dimen/_30sdp"
             android:layout_marginEnd="@dimen/_52sdp"
@@ -141,12 +109,12 @@
             app:tint="@color/colorBackground" />
 
         <ImageView
-            android:id="@+id/imgPerfil"
+            android:id="@+id/imgMap"
             android:layout_width="@dimen/_30sdp"
             android:layout_height="@dimen/_30sdp"
             android:contentDescription="@string/app_name"
             android:padding="@dimen/_2sdp"
-            android:src="@drawable/perfil"
+            android:src="@drawable/ic_maps"
             app:layout_constraintBottom_toTopOf="@id/viewDivider"
             app:layout_constraintEnd_toStartOf="@id/imageVideoMeeting"
             app:layout_constraintTop_toTopOf="parent"
@@ -162,13 +130,5 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         app:layout_constraintGuide_begin="145dp" />
-
-    <CalendarView
-        android:id="@+id/calendarView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/SobrePerfil" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

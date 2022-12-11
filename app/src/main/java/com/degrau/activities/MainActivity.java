@@ -4,6 +4,7 @@ import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -54,11 +55,12 @@ public class MainActivity extends AppCompatActivity implements UserListener {
                 preferenceManager.getString(Constrants.KEY_NOMECOMPLETO)
         ));
 
+
         binding.textSignOut.setOnClickListener(view -> signOut());
-        binding.imgFeed.setOnClickListener(view -> startActivity(new Intent(getApplicationContext(), FeedActivity.class)));
         binding.imgHome.setOnClickListener(view -> startActivity(new Intent(getApplicationContext(), MainActivity.class)));
-        binding.imgPerfil.setOnClickListener(view -> startActivity(new Intent(getApplicationContext(), PerfilActivity.class)));
+        binding.imgMap.setOnClickListener(view -> startActivity(new Intent(getApplicationContext(), MapsActivity.class)));
         binding.imgBuscar.setOnClickListener(view -> startActivity(new Intent(getApplicationContext(), EncontrarMentoresActivity.class)));
+        binding.icFeed.setOnClickListener(view -> startActivity(new Intent(getApplicationContext(), EditarPerfilActivity.class)));
 
         FirebaseInstallations.getInstance().getToken(true).addOnCompleteListener(task -> {
             if(task.isSuccessful() && task.getResult() != null){
